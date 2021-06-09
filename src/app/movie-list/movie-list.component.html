@@ -1,0 +1,52 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand">OMDB Search</a>
+      <form class="d-flex">
+        <input 
+        (keyup.enter) ="searchMovies(name)" #name
+        class="form-control me-2" type="search" placeholder="Search for a movie" aria-label="Search">
+        <button class="btn btn-outline-success"  type="submit">Search</button>
+      </form>
+    </div>
+</nav>
+
+<div class="alert alert-danger"  *ngIf="movies === undefined">
+  Movie Not Found
+</div>
+<div class="container w-75 container-half mt5" >
+  <div class="row">
+    <div class="card  "[class]="!obj.isDetailsShown ? ' col-6':'col-8'" *ngFor="let obj of movies"  >
+      <div class="row p-2">
+        <div class="col-md-4">
+          <img src="{{obj.Poster}}"  class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body" style="min-height: 200px;">
+            <h3 class="card-title">{{obj.Title}}</h3>
+            <div class="hiddenDetails" [hidden] = "!obj.isDetailsShown" >
+              <div class="plot">
+                <h6>Plot</h6>
+                <p style="font-size: smaller;">{{moviedetail.Plot}}</p>
+              </div>
+              <div class="actors">
+                <h6>Actors</h6>
+                <p  style="font-size: smaller;">{{moviedetail.Actors}}</p>
+              </div>
+              <div class="rating">
+                <h6>Ratings</h6>
+                <ul class="rating" *ngFor = "let rate of moviedetail.Ratings ">
+                  <li > {{rate.Source}} : {{rate.Value}} </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer" >
+            <hr>
+            <small class="text-muted">{{obj.Year}}</small>
+            <button [hidden] = "obj.isDetailsShown" class="btn btn-primary" style="float: right;"  (click)="detailsShown(obj.Title)">DETAILS</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

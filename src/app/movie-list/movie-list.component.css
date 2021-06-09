@@ -1,0 +1,27 @@
+.alert-danger{
+    text-align: center;
+ }
+ 
+ .alert {
+     margin: auto;
+     width: 60%;
+ }
+ 
+
+
+ul {
+    list-style-type: '- ';
+
+}
+ul li {
+    margin:-10px;
+    font-size: 13px;
+
+}
+.footer{
+    position: relative; 
+}
+
+.card{
+    margin-bottom: 10px;
+}
