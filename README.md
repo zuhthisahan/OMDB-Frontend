@@ -7,8 +7,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 # Features and outputs
-## List all movies with the given input
-![](src/assets/images/all movies.jpg)
+
+### List all movies with the given input
+### Show the error when there's no movie
+### full details about a particular movie
 
 ## Code scaffolding
 
